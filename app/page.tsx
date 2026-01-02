@@ -1,15 +1,27 @@
+import { Navbar, Footer } from "@/components/layout";
+import {
+  Hero,
+  FeatureCards,
+  About,
+  WhyChooseUs,
+  Metrics,
+  Services,
+  Process,
+  Testimonials,
+} from "@/components/sections";
 
-import Hero from '@/components/Hero';
-import ProblemSection from '@/components/ProblemSection';
-import ServicesAndStats from '@/components/ServicesAndStats';
-import Footer from '@/components/Footer';
-
-export default function Home() {
+export default function Page() {
   return (
     <>
+      <Navbar />
       <Hero />
-      <ProblemSection />
-      <ServicesAndStats />
+      <FeatureCards />
+      <About />
+      <WhyChooseUs />
+      <Metrics />
+      <Services />
+      <Process />
+      <Testimonials />
       <Footer />
     </>
   );
