@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-data-void-navy text-gray-200;
+  }
+}
+
+@layer utilities {
+  .bg-data-void-canvas {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-data-void-canvas::before,
+  .bg-data-void-canvas::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    opacity: 0.15;
+    filter: blur(100px);
+    z-index: -1;
+  }
+
+  .bg-data-void-canvas::before {
+    background-color: #3B82F6; /* electric-blue */
+    top: -10%;
+    left: -20%;
+    animation: blob-spin 20s linear infinite alternate;
+  }
+
+  .bg-data-void-canvas::after {
+    background-color: #8B5CF6; /* neon-purple */
+    bottom: -10%;
+    right: -20%;
+    animation: blob-spin 25s linear infinite alternate-reverse;
+  }
+}
+
+@keyframes blob-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
