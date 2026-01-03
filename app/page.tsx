@@ -81,47 +81,33 @@ export default function Page() {
         <FloatingShapes variant="mixed" density="low" />
 
         <Container>
-          <div className="bento-grid pt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-8">
             {/* Main Hero Content - Large Card */}
-            <motion.div
-              className="bento-lg bento-tall bento-feature flex flex-col justify-center p-8 lg:p-12"
-              initial="hidden"
-              animate="visible"
-              variants={stagger}
-            >
+            <div className="lg:col-span-8 min-h-[400px] bento-card-gold flex flex-col justify-center p-8 lg:p-12 rounded-2xl relative z-10">
               {/* Badge */}
-              <motion.div variants={fadeUp} className="mb-6">
+              <div className="mb-6">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 text-gold text-sm font-medium">
                   <Fuel className="h-4 w-4" />
                   Africa&apos;s Premier Data Refinery
                 </span>
-              </motion.div>
+              </div>
 
               {/* Main Headline */}
-              <motion.h1
-                variants={fadeUp}
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6"
-              >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-white">
                 <span className="text-gold">DATA</span> IS THE NEW{" "}
                 <span className="text-gold">PETROL</span>
                 <br />
-                <span className="text-white/90">WE REFINE IT.</span>
-              </motion.h1>
+                <span className="text-white">WE REFINE IT.</span>
+              </h1>
 
               {/* Subheadline */}
-              <motion.p
-                variants={fadeUp}
-                className="text-lg text-muted max-w-xl mb-8 leading-relaxed"
-              >
+              <p className="text-lg text-muted max-w-xl mb-8 leading-relaxed">
                 Transform your raw business data into refined intelligence that
                 powers decisions and drives growth.
-              </motion.p>
+              </p>
 
               {/* CTA Buttons */}
-              <motion.div
-                variants={fadeUp}
-                className="flex flex-wrap gap-4"
-              >
+              <div className="flex flex-wrap gap-4">
                 <TransitionLink
                   href="/contact"
                   className="btn-gold inline-flex items-center gap-2 text-base"
@@ -135,12 +121,12 @@ export default function Page() {
                 >
                   Our Services
                 </TransitionLink>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
             {/* Hero Illustration - Right Side */}
             <motion.div
-              className="bento-md bento-tall bento-card-cyan hidden lg:flex items-center justify-center p-6"
+              className="lg:col-span-4 min-h-[400px] bento-card-cyan hidden lg:flex items-center justify-center p-6 rounded-2xl"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -150,7 +136,7 @@ export default function Page() {
 
             {/* Stats Card */}
             <motion.div
-              className="bento-md bento-short bento-card-gold p-6 flex flex-col justify-center"
+              className="lg:col-span-4 bento-card-gold p-6 flex flex-col justify-center rounded-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -167,7 +153,7 @@ export default function Page() {
 
             {/* Robot Mascot Card */}
             <motion.div
-              className="bento-sm bento-short bento-card hidden md:flex items-center justify-center"
+              className="lg:col-span-4 bento-card p-6 hidden md:flex items-center justify-center rounded-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -177,7 +163,7 @@ export default function Page() {
 
             {/* Trust Indicators Card */}
             <motion.div
-              className="bento-md bento-short bento-card p-6"
+              className="lg:col-span-4 bento-card p-6 rounded-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}

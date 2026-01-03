@@ -151,57 +151,41 @@ Sent from JLWanalytics website contact form`
         <FloatingShapes variant="mixed" density="low" />
 
         <Container>
-          <div className="bento-grid">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Hero Content */}
-            <motion.div
-              className="bento-lg bento-medium bento-feature flex flex-col justify-center p-8 lg:p-10"
-              initial="hidden"
-              animate="visible"
-              variants={stagger}
-            >
-              <motion.span variants={fadeUp} className="section-label">
+            <div className="lg:col-span-8 min-h-[280px] bento-card-gold flex flex-col justify-center p-8 lg:p-10 rounded-2xl relative z-10">
+              <span className="section-label">
                 Contact Us
-              </motion.span>
-              <motion.h1
-                variants={fadeUp}
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mt-4 mb-6"
-              >
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mt-4 mb-6 text-white">
                 Let&apos;s <span className="text-gold">Refine</span> Your Data
-              </motion.h1>
-              <motion.p variants={fadeUp} className="text-lg text-muted leading-relaxed max-w-xl">
+              </h1>
+              <p className="text-lg text-muted leading-relaxed max-w-xl">
                 Ready to transform your raw data into refined business intelligence?
                 Get in touch for a free consultation.
-              </motion.p>
-            </motion.div>
+              </p>
+            </div>
 
             {/* Robot Mascot */}
-            <motion.div
-              className="bento-md bento-medium bento-card-gold hidden lg:flex items-center justify-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-            >
+            <div className="lg:col-span-4 min-h-[280px] bento-card-cyan hidden lg:flex items-center justify-center rounded-2xl">
               <DataRobot size="md" variant="gold" />
-            </motion.div>
+            </div>
 
             {/* Quick Info Cards */}
             {[
               { icon: Clock, text: "24hr Response", color: "gold" },
               { icon: Users, text: "Free Consultation", color: "cyan" },
               { icon: Zap, text: "Quick Onboarding", color: "gold" },
-            ].map((item, index) => (
-              <motion.div
+            ].map((item) => (
+              <div
                 key={item.text}
-                className={`bento-md bento-short ${
+                className={`lg:col-span-4 ${
                   item.color === "cyan" ? "bento-card-cyan" : "bento-card-gold"
-                } p-6 flex flex-col justify-center items-center text-center`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 + index * 0.1 }}
+                } p-6 flex flex-col justify-center items-center text-center rounded-2xl`}
               >
                 <item.icon className={`h-6 w-6 mb-2 ${item.color === "cyan" ? "text-cyan" : "text-gold"}`} />
                 <span className="text-sm font-medium">{item.text}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </Container>
@@ -586,20 +570,15 @@ Sent from JLWanalytics website contact form`
       {/* Global Reach Section - Bento */}
       <section className="py-20">
         <Container>
-          <div className="bento-grid">
-            <motion.div
-              className="bento-lg bento-feature p-10 md:p-12 text-center relative overflow-hidden"
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-            >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-8 bento-card-gold rounded-2xl p-10 md:p-12 text-center relative overflow-hidden">
               <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
               <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan/10 rounded-full blur-3xl" />
               <div className="relative z-10">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gold/10 border border-gold/20 mb-6">
                   <Globe className="h-8 w-8 text-gold" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                   Serving <span className="text-gold">All of Africa</span>
                 </h2>
                 <p className="text-muted max-w-xl mx-auto mb-6">
@@ -628,17 +607,12 @@ Sent from JLWanalytics website contact form`
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Robot Card */}
-            <motion.div
-              className="bento-md bento-card-cyan hidden lg:flex items-center justify-center p-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-            >
+            <div className="lg:col-span-4 bento-card-cyan hidden lg:flex items-center justify-center p-6 rounded-2xl">
               <DataRobot size="md" variant="cyan" />
-            </motion.div>
+            </div>
           </div>
         </Container>
       </section>

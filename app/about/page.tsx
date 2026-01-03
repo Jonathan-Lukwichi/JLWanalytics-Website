@@ -101,56 +101,40 @@ export default function AboutPage() {
         <FloatingShapes variant="mixed" density="low" />
 
         <Container>
-          <div className="bento-grid">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Hero Content - Large Card */}
-            <motion.div
-              className="bento-lg bento-medium bento-feature flex flex-col justify-center p-8 lg:p-10"
-              initial="hidden"
-              animate="visible"
-              variants={stagger}
-            >
-              <motion.span variants={fadeUp} className="section-label">
+            <div className="lg:col-span-8 min-h-[280px] bento-card-gold flex flex-col justify-center p-8 lg:p-10 rounded-2xl relative z-10">
+              <span className="section-label">
                 About Us
-              </motion.span>
-              <motion.h1
-                variants={fadeUp}
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mt-4 mb-6"
-              >
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mt-4 mb-6 text-white">
                 Refining Africa&apos;s <span className="text-gold">Data Future</span>
-              </motion.h1>
-              <motion.p variants={fadeUp} className="text-lg text-muted leading-relaxed max-w-xl">
+              </h1>
+              <p className="text-lg text-muted leading-relaxed max-w-xl">
                 JLWanalytics bridges the gap between data abundance and data utilization.
                 We transform African businesses from data-blind to data-driven.
-              </motion.p>
-            </motion.div>
+              </p>
+            </div>
 
             {/* Robot Mascot */}
-            <motion.div
-              className="bento-md bento-medium bento-card-cyan hidden lg:flex items-center justify-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-            >
+            <div className="lg:col-span-4 min-h-[280px] bento-card-cyan hidden lg:flex items-center justify-center rounded-2xl">
               <DataRobot size="md" variant="cyan" />
-            </motion.div>
+            </div>
 
             {/* Milestones Row */}
             {milestones.map((milestone, index) => (
-              <motion.div
+              <div
                 key={milestone.event}
-                className={`bento-md bento-short ${
+                className={`lg:col-span-4 ${
                   index % 2 === 0 ? "bento-card-gold" : "bento-card-cyan"
-                } p-6 flex flex-col justify-center items-center text-center`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 + index * 0.1 }}
+                } p-6 flex flex-col justify-center items-center text-center rounded-2xl`}
               >
                 <milestone.icon className={`h-6 w-6 mb-3 ${index % 2 === 0 ? "text-gold" : "text-cyan"}`} />
                 <div className={`text-2xl font-bold font-display ${index % 2 === 0 ? "text-gold" : "text-cyan"}`}>
                   {milestone.year}
                 </div>
                 <div className="text-sm text-muted">{milestone.event}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </Container>
