@@ -33,19 +33,19 @@ export function Hero() {
             >
               <div className="flex items-center gap-2 text-xs tracking-[0.22em] text-white/70">
                 <Sparkles className="h-4 w-4 text-white/70" />
-                YOUR DATA, OUR INNOVATION
+                TRANSFORMING AFRICAN BUSINESS THROUGH DATA
               </div>
 
               <h1 className="mt-4 text-4xl lg:text-5xl font-extrabold leading-tight">
-                Bringing insights to life with <br />
-                <Accent>cutting-edge</Accent> <br />
-                <Accent>analytics</Accent>
+                From Data to <Accent>Decisions</Accent>. <br />
+                From Insights to <br />
+                <Accent>Impact</Accent>.
               </h1>
 
               <p className="mt-4 text-sm lg:text-base text-muted max-w-xl leading-relaxed">
-                From data visualization to predictive models, web applications to AI
-                integration — we transform your data into actionable insights. Let's
-                unlock your potential together.
+                We take organizations from paper-based chaos to AI-powered clarity.
+                Digitalization, advanced analytics, ML forecasting, and training —
+                empowering African businesses to become truly data-driven.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-4">
@@ -89,8 +89,8 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 1 }}
                 className="absolute bottom-8 right-8 glass-card rounded-lg2 px-6 py-4"
               >
-                <div className="text-3xl font-extrabold text-primary">100+</div>
-                <div className="text-xs text-muted mt-1">Projects Delivered</div>
+                <div className="text-3xl font-extrabold text-primary">127%</div>
+                <div className="text-xs text-muted mt-1">Average ROI in 3 Years</div>
               </motion.div>
             </div>
           </div>

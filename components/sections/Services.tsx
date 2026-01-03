@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart3, Globe, Brain, Code } from "lucide-react";
+import { BarChart3, Database, Brain, LineChart, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Container } from "../layout/Container";
 import { Card } from "../ui/Card";
@@ -23,28 +23,34 @@ const itemVariants = {
 
 const services = [
   {
-    icon: <BarChart3 className="h-5 w-5 text-primary" />,
-    title: "Data Analytics",
-    desc: "Business intelligence and dashboards that drive decisions.",
-    bullets: ["Interactive Dashboards", "KPI Tracking & Reporting"],
+    icon: <Database className="h-5 w-5 text-primary" />,
+    title: "Data Digitalization",
+    desc: "Transform paper-based operations into structured digital assets.",
+    bullets: ["Document Scanning & OCR", "Database Design & Migration"],
   },
   {
-    icon: <Globe className="h-5 w-5 text-primary" />,
-    title: "Web Development",
-    desc: "Fullstack web applications with modern frameworks.",
-    bullets: ["React & Next.js", "Cloud Deployment"],
+    icon: <BarChart3 className="h-5 w-5 text-primary" />,
+    title: "Advanced Analytics",
+    desc: "Descriptive, diagnostic, predictive, and prescriptive analysis.",
+    bullets: ["Interactive Dashboards", "Root Cause Analysis"],
   },
   {
     icon: <Brain className="h-5 w-5 text-primary" />,
-    title: "AI & Machine Learning",
-    desc: "Predictive models and intelligent automation.",
-    bullets: ["Forecasting Models", "Natural Language Processing"],
+    title: "AI & ML Forecasting",
+    desc: "State-of-the-art algorithms for business prediction.",
+    bullets: ["Demand Forecasting", "Churn Prediction Models"],
   },
   {
-    icon: <Code className="h-5 w-5 text-primary" />,
-    title: "Custom Software",
-    desc: "Tailored solutions for your unique business needs.",
-    bullets: ["Mobile Applications", "API Integrations"],
+    icon: <LineChart className="h-5 w-5 text-primary" />,
+    title: "Dashboard Solutions",
+    desc: "Stunning visualizations using industry-leading BI platforms.",
+    bullets: ["Metabase & Superset", "Looker & Grafana"],
+  },
+  {
+    icon: <GraduationCap className="h-5 w-5 text-primary" />,
+    title: "Training Academy",
+    desc: "Build your team's data capabilities with practical skills.",
+    bullets: ["AI-Assisted Coding", "No-Code Analytics"],
   },
 ];
 
@@ -59,10 +65,13 @@ export function Services() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <SectionHeader centered>WHAT WE DO</SectionHeader>
+          <SectionHeader centered>OUR SERVICES</SectionHeader>
           <h2 className="mt-4 text-4xl lg:text-5xl font-extrabold">
-            From data to deployment — we build <Accent>solutions</Accent> that work
+            End-to-end <Accent>data intelligence</Accent> ecosystem
           </h2>
+          <p className="mt-4 text-muted max-w-2xl mx-auto">
+            From paper-based chaos to AI-powered clarity — we handle your entire data journey.
+          </p>
         </motion.div>
 
         <motion.div
@@ -70,7 +79,7 @@ export function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
         >
           {services.map((s) => (
             <motion.div key={s.title} variants={itemVariants}>

@@ -1,6 +1,5 @@
 "use client";
 
-import { Layers, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Container } from "../layout/Container";
 import { Card } from "../ui/Card";
@@ -28,43 +27,49 @@ export function Metrics() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           <motion.div variants={itemVariants}>
             <Card className="p-7 h-full">
-              <div className="mb-3 grid h-12 w-12 place-items-center rounded-full bg-primary/15 border border-white/10">
-                <Layers className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-bold">End-to-End Support</h3>
+              <div className="text-5xl font-extrabold text-primary">23x</div>
+              <div className="mt-2 text-lg font-bold">Customer Acquisition</div>
               <p className="mt-2 text-sm text-muted">
-                We support you from data strategy to deployment and beyond.
+                Data-driven companies are 23x more likely to acquire customers.
               </p>
-              <a
-                className="mt-4 inline-flex items-center gap-2 text-primary text-sm font-semibold hover:underline"
-                href="#services"
-              >
-                Learn More <ArrowUpRight className="h-4 w-4" />
-              </a>
+              <div className="mt-3 text-xs text-white/50">McKinsey Global Institute</div>
             </Card>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <Card className="p-7 h-full">
-              <div className="text-5xl font-extrabold text-primary">99%</div>
-              <div className="mt-2 text-lg font-bold">Client Satisfaction Rate</div>
+              <div className="text-5xl font-extrabold text-primary">19x</div>
+              <div className="mt-2 text-lg font-bold">Profitability Boost</div>
               <p className="mt-2 text-sm text-muted">
-                Consistently delivering analytics solutions that exceed expectations.
+                Analytics-driven organizations are 19x more likely to be profitable.
               </p>
+              <div className="mt-3 text-xs text-white/50">McKinsey Global Institute</div>
             </Card>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <Card className="p-7 h-full">
-              <div className="text-5xl font-extrabold text-primary">100+</div>
-              <div className="mt-2 text-lg font-bold">Dashboards Built</div>
+              <div className="text-5xl font-extrabold text-primary">5x</div>
+              <div className="mt-2 text-lg font-bold">Faster Decisions</div>
               <p className="mt-2 text-sm text-muted">
-                Custom analytics dashboards deployed across industries worldwide.
+                Data-driven decision-making is 5x faster than intuition-based approaches.
               </p>
+              <div className="mt-3 text-xs text-white/50">BARC Research</div>
+            </Card>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <Card className="p-7 h-full">
+              <div className="text-5xl font-extrabold text-primary">775%</div>
+              <div className="mt-2 text-lg font-bold">Churn Prediction ROI</div>
+              <p className="mt-2 text-sm text-muted">
+                Customer churn prediction models deliver 775% ROI in the first year.
+              </p>
+              <div className="mt-3 text-xs text-white/50">Industry Research</div>
             </Card>
           </motion.div>
         </motion.div>

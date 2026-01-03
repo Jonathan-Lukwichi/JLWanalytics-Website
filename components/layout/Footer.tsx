@@ -21,8 +21,9 @@ export function Footer() {
                 </div>
               </div>
               <p className="mt-4 text-sm text-muted leading-relaxed">
-                Transforming data into decisions. We deliver cutting-edge analytics,
-                web development, and AI solutions that drive real business results.
+                Turning Data into Decisions. Insights into Impact. We democratize
+                data analytics across Africa, empowering businesses with AI-powered
+                intelligence solutions.
               </p>
             </div>
 
@@ -63,7 +64,7 @@ export function Footer() {
                   </div>
                   <div>
                     <div className="font-semibold">Phone Number</div>
-                    <div className="text-muted mt-1">+27 (646) 211-860</div>
+                    <div className="text-muted mt-1">+27 84 731 4600</div>
                   </div>
                 </div>
 
@@ -73,7 +74,7 @@ export function Footer() {
                   </div>
                   <div>
                     <div className="font-semibold">Email Address</div>
-                    <div className="text-muted mt-1">info@jlwanalytics.com</div>
+                    <div className="text-muted mt-1">jonathanlukwichi29@gmail.com</div>
                   </div>
                 </div>
 
@@ -91,8 +92,8 @@ export function Footer() {
           </div>
 
           <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/60 flex flex-col sm:flex-row justify-between gap-4">
-            <span>Copyright © {currentYear} JLWanalytics. All Rights Reserved.</span>
-            <span>Your Data, Our Innovation</span>
+            <span>Copyright © {currentYear} JLWanalytics (Pty) Ltd. All Rights Reserved.</span>
+            <span>Turning Data into Decisions. Insights into Impact.</span>
           </div>
         </Card>
       </Container>

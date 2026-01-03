@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate website content with official JLWanalytics branding\n\n- Fix contact info: correct phone \\(+27 84 731 4600\\) and email\n- Update Hero with official tagline: \"From Data to Decisions. From Insights to Impact.\"\n- Expand Services to 5 pillars: Digitalization, Analytics, AI/ML, Dashboards, Training Academy\n- Add founder profile \\(Jonathan Lukwichi\\) with credentials and languages\n- Add 8 target industries with chips: Healthcare, Mining, Banking, Law, Retail, Education, Government, SMEs\n- Update Metrics with McKinsey stats: 23x customer acquisition, 19x profitability, 5x faster decisions, 775% ROI\n- Add Africa BI market growth stat \\($340M → $500M by 2029\\)\n- Update footer with official tagline and correct company name \\(Pty\\) Ltd\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
