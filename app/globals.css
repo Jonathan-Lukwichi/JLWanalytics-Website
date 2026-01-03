@@ -2,85 +2,371 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Space Grotesk for accent numbers */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 html, body {
   height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
-  background: #000;
+  background: #050B14;
   color: #fff;
 }
 
-/* Soft vignette / glow like the screenshots */
+/* ============================================
+   BACKGROUND EFFECTS - Data Refinery Theme
+   ============================================ */
+
+/* Deep navy vignette with gold accents */
 .bg-vignette {
   background:
-    radial-gradient(1200px 600px at 30% 0%, rgba(40,16,128,0.25), transparent 60%),
-    radial-gradient(900px 500px at 80% 80%, rgba(16,127,174,0.12), transparent 60%),
-    radial-gradient(900px 500px at 10% 90%, rgba(255,255,255,0.03), transparent 55%),
-    #000;
+    radial-gradient(1200px 600px at 20% 0%, rgba(212,168,83,0.08), transparent 60%),
+    radial-gradient(900px 500px at 80% 20%, rgba(212,168,83,0.05), transparent 60%),
+    radial-gradient(800px 400px at 50% 100%, rgba(10,22,40,0.8), transparent 60%),
+    #050B14;
 }
 
-/* Card glass feel */
-.glass-card {
+/* Hero section gradient */
+.hero-gradient {
   background:
-    radial-gradient(1200px 600px at 30% 10%, rgba(40,16,128,0.18), transparent 55%),
-    radial-gradient(900px 500px at 80% 80%, rgba(16,127,174,0.10), transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.65);
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(212,168,83,0.12), transparent 60%),
+    radial-gradient(ellipse 100% 60% at 80% 100%, rgba(15,39,68,0.8), transparent 50%),
+    linear-gradient(180deg, #0A1628 0%, #050B14 100%);
+}
+
+/* ============================================
+   CARD STYLES - Analytics8 Inspired
+   ============================================ */
+
+/* Gold-accented glass card */
+.glass-card {
+  background: linear-gradient(180deg, rgba(15,39,68,0.6) 0%, rgba(10,22,40,0.8) 100%);
+  border: 1px solid rgba(212,168,83,0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   backdrop-filter: blur(12px);
 }
+
+/* Card with gold left border accent */
+.gold-card {
+  background: linear-gradient(180deg, rgba(15,39,68,0.5) 0%, rgba(10,22,40,0.7) 100%);
+  border: 1px solid rgba(212,168,83,0.12);
+  border-left: 3px solid #D4A853;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.gold-card:hover {
+  border-color: rgba(212,168,83,0.25);
+  border-left-color: #E8C373;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1);
+  transform: translateY(-2px);
+}
+
+/* Simple navy card */
+.navy-card {
+  background: rgba(15,39,68,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Cyan accent card */
+.cyan-card {
+  background: linear-gradient(180deg, rgba(15,39,68,0.5) 0%, rgba(10,22,40,0.7) 100%);
+  border: 1px solid rgba(14,165,233,0.15);
+  border-left: 3px solid #0EA5E9;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.cyan-card:hover {
+  border-color: rgba(14,165,233,0.3);
+  border-left-color: #38BDF8;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px rgba(14,165,233,0.15);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   BENTO GRID SYSTEM
+   ============================================ */
+
+/* Base bento grid container */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+/* Bento card sizes */
+.bento-full { grid-column: span 12; }
+.bento-lg { grid-column: span 8; }
+.bento-half { grid-column: span 6; }
+.bento-md { grid-column: span 4; }
+.bento-sm { grid-column: span 3; }
+
+/* Bento card heights */
+.bento-tall { min-height: 400px; }
+.bento-medium { min-height: 280px; }
+.bento-short { min-height: 200px; }
+
+/* Responsive bento grid */
+@media (max-width: 1024px) {
+  .bento-lg { grid-column: span 12; }
+  .bento-half { grid-column: span 6; }
+  .bento-md { grid-column: span 6; }
+  .bento-sm { grid-column: span 6; }
+}
+
+@media (max-width: 768px) {
+  .bento-grid { gap: 1rem; }
+  .bento-lg,
+  .bento-half,
+  .bento-md,
+  .bento-sm { grid-column: span 12; }
+  .bento-tall { min-height: 300px; }
+  .bento-medium { min-height: 220px; }
+}
+
+/* Bento card base styles */
+.bento-card {
+  background: linear-gradient(180deg, rgba(15,39,68,0.6) 0%, rgba(10,22,40,0.8) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  border-color: rgba(212,168,83,0.2);
+}
+
+/* Bento card with gold accent */
+.bento-card-gold {
+  background: linear-gradient(180deg, rgba(15,39,68,0.6) 0%, rgba(10,22,40,0.8) 100%);
+  border: 1px solid rgba(212,168,83,0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.bento-card-gold:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 30px rgba(212,168,83,0.15);
+  border-color: rgba(212,168,83,0.3);
+}
+
+/* Bento card with cyan accent */
+.bento-card-cyan {
+  background: linear-gradient(180deg, rgba(15,39,68,0.6) 0%, rgba(10,22,40,0.8) 100%);
+  border: 1px solid rgba(14,165,233,0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.bento-card-cyan:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 30px rgba(14,165,233,0.15);
+  border-color: rgba(14,165,233,0.3);
+}
+
+/* Bento card image container */
+.bento-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.bento-card:hover .bento-image {
+  transform: scale(1.05);
+}
+
+/* Bento card content overlay */
+.bento-content {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Feature highlight bento */
+.bento-feature {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(212,168,83,0.15), transparent 50%),
+    linear-gradient(180deg, rgba(15,39,68,0.7) 0%, rgba(10,22,40,0.9) 100%);
+  border: 1px solid rgba(212,168,83,0.2);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* ============================================
+   HOVER & INTERACTION EFFECTS
+   ============================================ */
 
 /* Smooth hover lift */
 .hover-lift {
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
+
 .hover-lift:hover {
   transform: translateY(-4px);
-  border-color: rgba(255,255,255,0.12);
-  box-shadow: 0 18px 55px rgba(0,0,0,0.75);
+  border-color: rgba(212,168,83,0.25);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
 
-/* Hero gradient panel */
-.hero-gradient {
-  background: linear-gradient(135deg, #100060 0%, #281080 40%, rgba(16,127,174,0.3) 100%);
+/* Gold glow on hover */
+.hover-glow:hover {
+  box-shadow: 0 0 25px rgba(212,168,83,0.25);
 }
 
-/* Glow effects */
-.glow-teal {
-  box-shadow: 0 0 20px rgba(16,127,174,0.4);
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(212,168,83,0.4);
 }
-.glow-purple {
-  box-shadow: 0 0 20px rgba(40,16,128,0.4);
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(255,107,53,0.4);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(212,168,83,0.3);
 }
 
 /* Active card state */
 .card-active {
   background:
-    radial-gradient(800px 400px at 50% 0%, rgba(16,127,174,0.20), transparent 50%),
-    radial-gradient(600px 300px at 50% 100%, rgba(40,16,128,0.15), transparent 50%),
-    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-  border-color: rgba(16,127,174,0.3);
+    radial-gradient(600px 300px at 50% 0%, rgba(212,168,83,0.15), transparent 50%),
+    linear-gradient(180deg, rgba(15,39,68,0.7), rgba(10,22,40,0.9));
+  border-color: rgba(212,168,83,0.3);
 }
 
-/* Scrollbar styling */
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+/* Gold primary button */
+.btn-gold {
+  background: linear-gradient(135deg, #D4A853 0%, #B8923F 100%);
+  color: #050B14;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  transition: all 200ms ease;
+  border: none;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #E8C373 0%, #D4A853 100%);
+  box-shadow: 0 0 25px rgba(212,168,83,0.4);
+  transform: translateY(-1px);
+}
+
+/* Gold outline button */
+.btn-gold-outline {
+  background: transparent;
+  color: #D4A853;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(212,168,83,0.4);
+  transition: all 200ms ease;
+}
+
+.btn-gold-outline:hover {
+  background: rgba(212,168,83,0.1);
+  border-color: #D4A853;
+  box-shadow: 0 0 20px rgba(212,168,83,0.2);
+}
+
+/* Accent button */
+.btn-accent {
+  background: linear-gradient(135deg, #FF6B35 0%, #E55A28 100%);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  transition: all 200ms ease;
+  border: none;
+}
+
+.btn-accent:hover {
+  background: linear-gradient(135deg, #FF8C5A 0%, #FF6B35 100%);
+  box-shadow: 0 0 25px rgba(255,107,53,0.4);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   TEXT STYLES
+   ============================================ */
+
+/* Gold text accent */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #E8C373 0%, #D4A853 50%, #B8923F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section label style */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #D4A853;
+}
+
+/* ============================================
+   PROCESS FLOW ELEMENTS
+   ============================================ */
+
+/* Connecting line for process steps */
+.process-line {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(212,168,83,0.3) 20%,
+    rgba(212,168,83,0.3) 80%,
+    transparent 100%
+  );
+  height: 2px;
+}
+
+/* Process step dot */
+.process-dot {
+  width: 12px;
+  height: 12px;
+  background: #D4A853;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(212,168,83,0.5);
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.02);
+  background: rgba(10,22,40,0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.1);
+  background: rgba(212,168,83,0.2);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(212,168,83,0.4);
 }
 
 /* Hide scrollbar for horizontal scroll containers */
@@ -88,6 +374,68 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* ============================================
+   ANIMATION UTILITIES
+   ============================================ */
+
+/* Fade in up animation class */
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+/* Staggered animations */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+/* Input field styling */
+.input-gold {
+  background: rgba(15,39,68,0.5);
+  border: 1px solid rgba(212,168,83,0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #fff;
+  transition: all 200ms ease;
+}
+
+.input-gold:focus {
+  outline: none;
+  border-color: rgba(212,168,83,0.5);
+  box-shadow: 0 0 0 3px rgba(212,168,83,0.1);
+}
+
+.input-gold::placeholder {
+  color: #5A7A99;
+}
+
+/* Select dropdown */
+.select-gold {
+  background: rgba(15,39,68,0.5);
+  border: 1px solid rgba(212,168,83,0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #fff;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D4A853' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.select-gold:focus {
+  outline: none;
+  border-color: rgba(212,168,83,0.5);
+  box-shadow: 0 0 0 3px rgba(212,168,83,0.1);
 }
