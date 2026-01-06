@@ -1,20 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { Navbar, Footer, Container } from "@/components/layout";
+import { ContactForm } from "@/components/forms";
 import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
   MapPin,
-  Send,
-  Fuel,
-  CheckCircle2,
-  Loader2,
   MessageSquare,
   Calendar,
   Globe,
-  ChevronDown,
   Clock,
   Users,
   Zap,
@@ -34,27 +29,6 @@ const stagger = {
     },
   },
 };
-
-// Service options for the form
-const serviceOptions = [
-  { value: "data-digitalization", label: "Data Digitalization" },
-  { value: "analytics", label: "Advanced Analytics & BI" },
-  { value: "ai-ml", label: "AI & Machine Learning" },
-  { value: "dashboards", label: "Custom Dashboards" },
-  { value: "training", label: "Training Academy" },
-  { value: "consultation", label: "Free Consultation" },
-  { value: "other", label: "Other" },
-];
-
-// Budget ranges
-const budgetOptions = [
-  { value: "under-35k", label: "Under R 35,000" },
-  { value: "35k-85k", label: "R 35,000 - R 85,000" },
-  { value: "85k-180k", label: "R 85,000 - R 180,000" },
-  { value: "180k-350k", label: "R 180,000 - R 350,000" },
-  { value: "350k-plus", label: "R 350,000+" },
-  { value: "not-sure", label: "Not sure yet" },
-];
 
 const faqs = [
   {
@@ -80,67 +54,6 @@ const faqs = [
 ];
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    service: "",
-    budget: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError("");
-
-    // Construct mailto link with form data
-    const subject = encodeURIComponent(
-      `[JLWanalytics] Service Request: ${
-        serviceOptions.find((s) => s.value === formData.service)?.label || "General Inquiry"
-      }`
-    );
-
-    const body = encodeURIComponent(
-      `Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company || "Not specified"}
-Phone: ${formData.phone || "Not specified"}
-Service Requested: ${serviceOptions.find((s) => s.value === formData.service)?.label || "Not selected"}
-Budget Range: ${budgetOptions.find((b) => b.value === formData.budget)?.label || "Not specified"}
-
-Message:
-${formData.message}
-
----
-Sent from JLWanalytics website contact form`
-    );
-
-    // Open email client
-    const mailtoLink = `mailto:info@jlwanalytics.com?subject=${subject}&body=${body}`;
-
-    // Simulate a brief delay for UX
-    await new Promise((resolve) => setTimeout(resolve, 800));
-
-    window.location.href = mailtoLink;
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-  };
-
   return (
     <>
       <Navbar />
@@ -202,190 +115,7 @@ Sent from JLWanalytics website contact form`
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-10 w-10 rounded-xl bg-gold/10 border border-gold/20 grid place-items-center">
-                  <Fuel className="h-5 w-5 text-gold" />
-                </div>
-                <h2 className="text-2xl font-bold">Start Your Refining Journey</h2>
-              </div>
-              <p className="text-muted text-sm mb-8">
-                Fill out the form below and we&apos;ll get back to you within 24 hours.
-              </p>
-
-              {isSubmitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/20 border border-gold/30 mb-6">
-                    <CheckCircle2 className="h-8 w-8 text-gold" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">Email Client Opened!</h3>
-                  <p className="text-muted max-w-md mx-auto">
-                    Your email client should have opened with your message. If it didn&apos;t, please email us
-                    directly at{" "}
-                    <a
-                      href="mailto:info@jlwanalytics.com"
-                      className="text-gold underline hover:text-gold-light transition-colors"
-                    >
-                      info@jlwanalytics.com
-                    </a>
-                  </p>
-                  <button
-                    onClick={() => setIsSubmitted(false)}
-                    className="mt-6 text-sm text-gold underline hover:text-gold-light transition-colors"
-                  >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name & Email Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Full Name <span className="text-gold">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        placeholder="John Doe"
-                        className="input-gold w-full"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Email Address <span className="text-gold">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        placeholder="john@company.com"
-                        className="input-gold w-full"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Company & Phone Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Company Name</label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Your Company"
-                        className="input-gold w-full"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Phone Number</label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="+27 84 731 4600"
-                        className="input-gold w-full"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Service & Budget Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Service Interested In <span className="text-gold">*</span>
-                      </label>
-                      <div className="relative">
-                        <select
-                          name="service"
-                          value={formData.service}
-                          onChange={handleChange}
-                          required
-                          className="select-gold w-full"
-                        >
-                          <option value="">Select a service</option>
-                          {serviceOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted pointer-events-none" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Budget Range</label>
-                      <div className="relative">
-                        <select
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleChange}
-                          className="select-gold w-full"
-                        >
-                          <option value="">Select budget range</option>
-                          {budgetOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted pointer-events-none" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Your Message <span className="text-gold">*</span>
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      placeholder="Tell us about your data challenges and what you hope to achieve..."
-                      className="input-gold w-full resize-none"
-                    />
-                  </div>
-
-                  {error && (
-                    <div className="text-danger text-sm bg-danger/10 px-4 py-2 rounded-lg border border-danger/20">
-                      {error}
-                    </div>
-                  )}
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full btn-gold inline-flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="h-5 w-5 animate-spin" />
-                        Opening Email Client...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-5 w-5" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
+              <ContactForm />
             </motion.div>
 
             {/* Contact Info Cards - Sidebar */}

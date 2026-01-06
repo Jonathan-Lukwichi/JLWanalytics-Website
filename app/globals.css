@@ -2,17 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Space Grotesk for accent numbers */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@layer base {
+  html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
 
-html, body {
-  height: 100%;
-  scroll-behavior: smooth;
-}
+  body {
+    background: #050B14;
+    color: #fff;
+  }
 
-body {
-  background: #050B14;
-  color: #fff;
+  /* Apply display font to all headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+    font-weight: 700;
+  }
 }
 
 /* ============================================
