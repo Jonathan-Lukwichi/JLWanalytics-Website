@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X, Fuel } from "lucide-react";
-import { TransitionLink } from "../transitions";
+import Link from "next/link";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,7 +27,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <TransitionLink href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group">
             <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/20 grid place-items-center transition-all group-hover:border-gold/40 group-hover:shadow-glow">
               <Fuel className="h-5 w-5 text-gold" />
             </div>
@@ -35,12 +35,12 @@ export function Navbar() {
               <span className="text-white">JLW</span>
               <span className="text-gold">analytics</span>
             </div>
-          </TransitionLink>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 text-sm">
             {navLinks.map((link) => (
-              <TransitionLink
+              <Link
                 key={link.href}
                 href={link.href}
                 className={`relative py-2 transition-colors ${
@@ -53,19 +53,19 @@ export function Navbar() {
                 {isActive(link.href) && (
                   <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold rounded-full" />
                 )}
-              </TransitionLink>
+              </Link>
             ))}
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <TransitionLink
+            <Link
               href="/contact"
               className="btn-gold inline-flex items-center gap-2 text-sm"
             >
               Start Refining
               <ArrowUpRight className="h-4 w-4" />
-            </TransitionLink>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,7 +89,7 @@ export function Navbar() {
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                <TransitionLink
+                <Link
                   key={link.href}
                   href={link.href}
                   className={`text-sm py-3 px-4 rounded-lg transition-all ${
@@ -100,15 +100,15 @@ export function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
-                </TransitionLink>
+                </Link>
               ))}
-              <TransitionLink
+              <Link
                 href="/contact"
                 className="btn-gold text-center mt-3 text-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Start Refining
-              </TransitionLink>
+              </Link>
             </div>
           </div>
         </div>

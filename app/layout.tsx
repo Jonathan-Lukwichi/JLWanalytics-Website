@@ -1,6 +1,5 @@
-import "./globals.css";
+import "./compiled.css";
 import { Inter, Space_Grotesk } from "next/font/google";
-import { PageTransition } from "@/components/transitions";
 import { Metadata } from "next";
 
 const inter = Inter({
@@ -43,7 +42,8 @@ export const metadata: Metadata = {
     url: "https://jlwanalytics.com",
     siteName: "JLWanalytics",
     title: "JLWanalytics | Africa's Premier Data Refinery",
-    description: "Data is the new petrol. We refine it. Transform raw data into actionable intelligence with Africa's leading data analytics consultancy.",
+    description:
+      "Data is the new petrol. We refine it. Transform raw data into actionable intelligence with Africa's leading data analytics consultancy.",
     images: [
       {
         url: "/og-image.png",
@@ -56,7 +56,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "JLWanalytics | Africa's Premier Data Refinery",
-    description: "Data is the new petrol. We refine it. Transform raw data into actionable intelligence.",
+    description:
+      "Data is the new petrol. We refine it. Transform raw data into actionable intelligence.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -78,11 +79,15 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className={`${inter.className} bg-vignette antialiased`}>
-        <PageTransition>{children}</PageTransition>
+      <body className={`${inter.className} bg-bg-primary antialiased`}>
+        {children}
       </body>
     </html>
   );
