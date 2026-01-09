@@ -37,7 +37,9 @@
       "Bash(timeout 10 curl:*)",
       "Bash(ls:*)",
       "Bash(npm cache clean:*)",
-      "Bash(NODE_ENV=development npx next dev:*)"
+      "Bash(NODE_ENV=development npx next dev:*)",
+      "Bash(git fetch:*)",
+      "Bash(NODE_ENV=development npm run build:*)"
     ]
   }
 }
